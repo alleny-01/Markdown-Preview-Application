@@ -1,0 +1,110 @@
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.error-boundary__container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.error-boundary__icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-boundary__title {
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.error-boundary__message {
+  color: #4a5568;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.error-boundary__details {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.error-boundary__summary {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.error-boundary__summary:hover {
+  background: #edf2f7;
+}
+
+.error-boundary__error-text {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  color: #c53030;
+  background: #fff5f5;
+  border-top: 1px solid #e2e8f0;
+}
+
+.error-boundary__button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.error-boundary__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.error-boundary__button:active {
+  transform: translateY(0);
+}
+
+.error-boundary__button:focus {
+  outline: 3px solid #4c51bf;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .error-boundary__container {
+    padding: 2rem 1.5rem;
+  }
+
+  .error-boundary__title {
+    font-size: 1.5rem;
+  }
+
+  .error-boundary__message {
+    font-size: 1rem;
+  }
+
+  .error-boundary__icon {
+    font-size: 3rem;
+  }
+}

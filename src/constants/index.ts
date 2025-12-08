@@ -1,4 +1,4 @@
-export const DEFAULT_MARKDOWN = `# Welcome to Markdown Preview
+export const DEFAULT_MARKDOWN: string = `# Welcome to Markdown Preview
 
 ## Features
 

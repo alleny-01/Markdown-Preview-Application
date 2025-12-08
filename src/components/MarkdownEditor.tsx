@@ -3,10 +3,9 @@ import { marked } from 'marked'
 import { FiCopy, FiDownload, FiRefreshCw } from 'react-icons/fi'
 import { MdPreview } from 'react-icons/md'
 import { AiOutlineEdit } from 'react-icons/ai'
-import LoadingSpinner from './LoadingSpinner.jsx'
+import LoadingSpinner from './LoadingSpinner'
 import './MarkdownEditor.css'
-import { DEFAULT_MARKDOWN } from '../constants/index.jsx'
-
+import { DEFAULT_MARKDOWN } from '../constants'
 
 marked.setOptions({
   breaks: true,
@@ -14,11 +13,11 @@ marked.setOptions({
 })
 
 
-function MarkdownEditor() {
-  const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN)
-  const [renderedHtml, setRenderedHtml] = useState(marked.parse(DEFAULT_MARKDOWN))
-  const [isLoading, setIsLoading] = useState(false)
-  const [copySuccess, setCopySuccess] = useState(false)
+function MarkdownEditor(): JSX.Element {
+  const [markdown, setMarkdown] = useState<string>(DEFAULT_MARKDOWN)
+  const [renderedHtml, setRenderedHtml] = useState<string>('')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [copySuccess, setCopySuccess] = useState<boolean>(false)
 
   useEffect(() => {
     if (markdown.length > 5000) {
@@ -26,15 +25,17 @@ function MarkdownEditor() {
     }
 
     const timer = setTimeout(() => {
-      try {
-        const html = marked.parse(markdown)
-        setRenderedHtml(html)
-      } catch (error) {
-        console.error('Markdown parsing error:', error)
-        setRenderedHtml('<p style="color: red;">Error parsing markdown</p>')
-      } finally {
-        setIsLoading(false)
-      }
+      const result = marked.parse(markdown)
+
+      Promise.resolve(result)
+        .then((html) => setRenderedHtml(String(html)))
+        .catch((error) => {
+          console.error('Markdown parsing error:', error)
+          setRenderedHtml('<p style="color: red;">Error parsing markdown</p>')
+        })
+        .finally(() => {
+          setIsLoading(false)
+        })
     }, 100)
 
     return () => clearTimeout(timer)
@@ -118,7 +119,7 @@ function MarkdownEditor() {
             <textarea
               className="markdown-editor__textarea"
               value={markdown}
-              onChange={(e) => setMarkdown(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMarkdown(e.target.value)}
               placeholder="Enter your markdown here..."
               aria-label="Markdown editor input"
               spellCheck="false"
@@ -150,4 +151,4 @@ function MarkdownEditor() {
   )
 }
 
-export default MarkdownEditor;
+export default MarkdownEditor

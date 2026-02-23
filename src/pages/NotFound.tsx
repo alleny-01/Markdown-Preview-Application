@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { FiHome } from 'react-icons/fi'
 import './NotFound.css'
 
-function NotFound() {
+function NotFound(): JSX.Element {
   return (
     <div className="not-found">
       <div className="not-found__container">
@@ -20,4 +20,4 @@ function NotFound() {
   )
 }
 
-export default NotFound;
+export default NotFound

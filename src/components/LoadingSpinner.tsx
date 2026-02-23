@@ -1,6 +1,6 @@
 import './LoadingSpinner.css'
 
-function LoadingSpinner() {
+function LoadingSpinner(): JSX.Element {
   return (
     <div className="loading-spinner" role="status" aria-live="polite">
       <div className="loading-spinner__circle"></div>
@@ -9,5 +9,4 @@ function LoadingSpinner() {
   )
 }
 
-export default LoadingSpinner;
-
+export default LoadingSpinner

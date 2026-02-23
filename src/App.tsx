@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import ErrorBoundary from './components/ErrorBoundary.jsx'
-import MarkdownEditor from './components/MarkdownEditor.jsx'
-import ErrorTest from './pages/ErrorTest.jsx'
-import NotFound from './pages/NotFound.jsx'
+import ErrorBoundary from './components/ErrorBoundary'
+import MarkdownEditor from './components/MarkdownEditor'
+import ErrorTest from './pages/ErrorTest'
+import NotFound from './pages/NotFound'
 import './App.css'
 
-function App() {
+function App(): JSX.Element {
   return (
     <ErrorBoundary>
       <Routes>
@@ -22,4 +22,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

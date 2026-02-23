@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './ErrorTest.css'
 
-function ErrorTest() {
-  const [shouldError, setShouldError] = useState(false)
+function ErrorTest(): JSX.Element {
+  const [shouldError, setShouldError] = useState<boolean>(false)
 
   if (shouldError) {
     throw new Error('This is a test error to demonstrate the Error Boundary!')
@@ -30,4 +30,4 @@ function ErrorTest() {
   )
 }
 
-export default ErrorTest;
+export default ErrorTest
